@@ -1,0 +1,16 @@
+def has_no_repeats(word):
+    return len(word) == len(set(word))
+
+
+sentence = input()
+words = sentence.split()
+
+if not words:  # проверка на пустой список
+    print("Ошибка")
+else:
+    first_word = words[0]
+    result = [
+        word for word in words[1:]
+        if word != first_word and has_no_repeats(word)
+    ]
+    print(' '.join(result))
