@@ -1,0 +1,31 @@
+secret = input("Ведущий вводит число: ")
+
+print("\n" * 25)
+
+attempts = 10
+game_over = False
+
+while attempts > 0 and not game_over:
+    guess = input("Напиши предполагаемое число: ")
+
+    bulls = 0
+    cows = 0
+
+    for i in range(4):
+        if guess[i] == secret[i]:
+            bulls += 1
+        elif guess[i] in secret:
+            cows += 1
+
+    if bulls == 4:
+        print(f"Быки: {bulls} Коровы: {cows}")
+        print("Победа!")
+        game_over = True
+    else:
+        print(f"Быки: {bulls} Коровы: {cows}")
+        attempts -= 1
+
+        if attempts == 0:
+            print("Проигрыш. Ответ: ", secret)
+        else:
+            print(f"Осталось попыток: {attempts}")
