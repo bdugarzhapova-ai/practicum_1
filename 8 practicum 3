@@ -1,0 +1,9 @@
+text = input()
+unique_letters = set()
+
+for char in text:
+    if char.isalpha():
+        unique_letters.add(char)
+
+count = len(unique_letters)
+print(count)
