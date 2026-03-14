@@ -1,0 +1,47 @@
+hint = input("Ведущий вводит подсказку: ")
+word = input("Ведущий вводит слово: ").lower()
+print("\n" * 25)
+print(hint)
+print()
+
+known = []
+attempts = 10
+game_over = False
+
+while attempts > 0 and not game_over:
+    for letter in word:
+        if letter in known:
+            print(letter, end="")
+        else:
+            print("*", end="")
+    print()
+    choice = input("Буква или слово (0 - буква, 1 - слово)? ")
+
+    if choice == "0":
+        letter = input().lower()
+        if letter in word:
+            known.append(letter)
+            win = True
+            for b in word:
+                if b not in known:
+                    win = False
+                    break
+
+            if win:
+                print(word)
+                print("Победа!")
+                game_over = True
+        else:
+            attempts -= 1
+            if attempts == 0:
+                print("Проигрыш!")
+                game_over = True
+
+    elif choice == "1":
+        answer = input().lower()
+        if answer == word:
+            print(word)
+            print("Победа!")
+        else:
+            print("Проигрыш!")
+        game_over = True
