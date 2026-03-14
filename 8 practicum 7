@@ -1,0 +1,8 @@
+sentence = input()
+words = sentence.split()
+lengths = []
+for word in words:
+    lengths.append(len(word))
+    shortest_length = min(lengths)
+
+print(shortest_length)
