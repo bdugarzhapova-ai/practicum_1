@@ -1,0 +1,27 @@
+def last_letter(name):
+    name = name.lower()
+    for i in range(len(name)-1, -1, -1):
+        if name[i] not in ['ъ', 'ь', 'й', 'ы']:
+            return name[i]
+    return name(-1)
+
+def game(all_cities):
+    step = all_cities.split()
+    if all_cities == "" :
+        return "Нет городов"
+    for i in range(len(step) - 1):
+        current_step = step[i]
+        next_step = step[i + 1]
+        last_letter_of_city = last_letter(current_step)
+        first_letter_of_city = next_step[0].lower()
+        if last_letter_of_city != first_letter_of_city:
+            if (i+1) % 2 == 0:
+                return "Выиграл Вася"
+            else:
+                return "Выиграл Петя"
+        if (len(step)+1) % 2 == 0:
+            return "Выиграл Петя"
+        else:
+            return "Выиграл Вася"
+all_cities = input("Введите последовательность городов:")
+print(game(all_cities))
