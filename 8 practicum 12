@@ -1,0 +1,23 @@
+import keyword
+
+
+def is_valid_python_name(name):
+    if not name:
+        return False
+    if keyword.iskeyword(name):
+        return False
+    if name[0].isdigit():
+        return False
+    for char in name:
+        if not (char.isalnum() or char == '_'):
+            return False
+    if all(char == '_' for char in name):
+        return True
+    return True
+
+
+name = input("Введите строку для проверки: ")
+if is_valid_python_name(name):
+    print("Может быть именем в Python")
+else:
+    print("Не может быть именем в Python")
