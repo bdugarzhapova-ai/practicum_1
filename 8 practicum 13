@@ -1,0 +1,30 @@
+count = 0  
+
+while True:
+    ticket = input("Введите номер билета: ").strip()
+    count += 1
+
+    if not ticket.isdigit():
+        print("Билет должен состоять только из цифр")
+        continue
+
+    if len(ticket) % 2 != 0:
+        print(f"Билет с нечетным количеством цифр, пропускаем")
+        continue
+
+    half = len(ticket) // 2
+    first_half = ticket[:half]
+    second_half = ticket[half:]
+
+    sum_first = sum(int(digit) for digit in first_half)
+    sum_second = sum(int(digit) for digit in second_half)
+
+    print(f"Билет #{count}: {ticket} -> первая половина: {first_half} (сумма {sum_first}), "
+          f"вторая половина: {second_half} (сумма {sum_second})")
+
+    if sum_first == sum_second:
+        print(f"\n Найден счастливый билет! Порядковый номер: {count}")
+        print(f"Номер билета: {ticket}")
+        break
+    else:
+        print("Обычный билет, продолжаем поиск...\n")
