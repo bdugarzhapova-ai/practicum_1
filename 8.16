@@ -1,0 +1,22 @@
+text = input("Введите текст для проверки: ")
+
+stack = []
+correct = True
+
+for char in text:
+    if char == '(':
+        stack.append('(')
+    elif char == ')':
+        if len(stack) > 0:
+            stack.pop()
+        else:
+            correct = False
+            break
+
+if len(stack) > 0:
+    correct = False
+
+if correct:
+    print("Скобки расставлены правильно")
+else:
+    print("Скобки расставлены неправильно")
