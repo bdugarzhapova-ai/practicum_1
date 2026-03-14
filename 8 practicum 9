@@ -1,0 +1,11 @@
+sentence = input()
+words = sentence.split()
+seen = set()
+
+for word in words:
+    if word in seen:
+        print(word)
+        break
+    seen.add(word)
+else:
+    print()
