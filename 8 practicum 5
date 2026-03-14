@@ -1,0 +1,15 @@
+str_1 = input()
+str_2 = input()
+str_3 = input()
+
+set1 = set(str_1)
+set2 = set(str_2)
+set3 = set(str_3)
+
+only_in_s1 = set1 - set2 - set3
+only_in_s2 = set2 - set1 - set3
+only_in_s3 = set3 - set1 - set2
+
+result = only_in_s1 | only_in_s2 | only_in_s3
+
+print(''.join(result))
