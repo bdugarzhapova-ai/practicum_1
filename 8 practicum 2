@@ -1,0 +1,15 @@
+text = input()
+max_count = 1
+current_count = 1
+
+if not text:  # проверка на пустую строку
+    print("Ошибка: пустая строка")
+else:
+    for i in range(1, len(text)):
+        if text[i] == text[i - 1]:
+            current_count += 1
+            max_count = max(max_count, current_count)  # более компактная запись
+        else:
+            current_count = 1
+
+    print("Максимальное количество последовательных:", max_count)
